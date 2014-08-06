@@ -1,4 +1,4 @@
-package com.elacarte.tooling;
+
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -19,8 +19,7 @@ public class IdleTrackerService extends Service {
 
     static long lastTimeIdle = 0;
     
-    // In the Presto “Setting->Display->Idle Timeout” is to set the interval after which the device is "idle".
-    static long lag = 15000; // 15,000 ms == 15 seconds
+    static long lag = 15000; 
 
     boolean idleTimeStart = true;
     
@@ -121,7 +120,7 @@ public class IdleTrackerService extends Service {
     
     
     /*
-     *  counting the total idle time through Presto's run
+     *  counting the total idle time through device's run
      *  @return totalIdleTime in total minutes
      */
     private long trackTotalIdleTime() {
@@ -136,7 +135,7 @@ public class IdleTrackerService extends Service {
     }
     
     /*
-     *  counting the total used time through Presto's run
+     *  counting the total used time through device's run
      *  @return totalUsedTime in total minutes
      */
     private long trackTotalUsedTime() {
