@@ -17,12 +17,9 @@ public abstract class Operator {
 		return true;
 	}
 
-	public abstract Object execute(Operand op1, Operand op2);
+	public abstract Operand execute(Operand op1, Operand op2);
 
-	public int priority() {
-		return this.priority;
-	}
-
+	public abstract int priority();
 }
 
 
@@ -31,11 +28,13 @@ public abstract class Operator {
 ***********************************/
 class AdditionOperator extends Operator {
 	
-	public int priority = 2;
-	
 	public Operand execute(Operand op1, Operand op2){
 		return (new Operand(op1.getValue() + op2.getValue()));
 	 }
+	
+	public int priority() {
+		return 2;
+	}
 }
 
 
@@ -44,11 +43,13 @@ class AdditionOperator extends Operator {
 ************************************/
 class SubtractionOperator extends Operator {
 	
-	public int priority = 2;
-	
 	public Operand execute(Operand op1, Operand op2){
 		return (new Operand(op1.getValue() - op2.getValue()));
 	 }
+	
+	public int priority() {
+		return 2;
+	}
 }
 
 
@@ -57,11 +58,13 @@ class SubtractionOperator extends Operator {
 **********************************/
 class DivisionOperator extends Operator {
 	
-	public int priority = 3;
-	
 	public Operand execute(Operand op1, Operand op2){
 		return (new Operand(op1.getValue() / op2.getValue()));
 	 }
+	
+	public int priority() {
+		return 3;
+	}
 }
 
 
@@ -70,10 +73,12 @@ class DivisionOperator extends Operator {
 **********************************/
 class MultiplicationOperator extends Operator {
 	
-	public int priority = 3;
-	
 	public Operand execute(Operand op1, Operand op2){
 		return (new Operand(op1.getValue() * op2.getValue()));
+	}
+	
+	public int priority() {
+		return 3;
 	}
 }
 
@@ -82,11 +87,13 @@ class MultiplicationOperator extends Operator {
 **********************************/
 class ExclamationOperator extends Operator {
 	
-	public int priority = 1;
-
 	@Override
-	public Object execute(Operand op1, Operand op2) {
+	public Operand execute(Operand op1, Operand op2) {
 		return null;
+	}
+	
+	public int priority() {
+		return 1;
 	}
 }
 
@@ -96,12 +103,14 @@ class ExclamationOperator extends Operator {
 **********************************/
 class HashOperator extends Operator {
 
-	private int priority = 0; 
-	
 	@Override
-	public Object execute(Operand op1, Operand op2) {
+	public Operand execute(Operand op1, Operand op2) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public int priority() {
+		return 0;
 	}
 
 }

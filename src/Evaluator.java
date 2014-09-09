@@ -2,9 +2,8 @@ import java.util.*;
 
 public class Evaluator {
 	
-	 static Stack<Operand> opdStack;
-	 
-	 private Stack<Operator> oprStack;
+	 private static Stack<Operand> opdStack;
+	 private static Stack<Operator> oprStack;
 	 
 	 private Operator newOpr;
 	 
@@ -30,28 +29,26 @@ public class Evaluator {
 				 
 			 if ( !(tok = st.nextToken()).equals(" ")) { // filter out spaces 
 				 if (Operand.check(tok)) { // check if tok is an operand
-					 opdStack.push(new Operand(tok));  
-				 } else {
+					 System.out.println("stack"+ opdStack.push(new Operand(tok)).getValue());  
+				 } 
+				 else {
 					 if (!(Operator.operators.containsKey(tok))) {
 						 System.out.println("*****invalid token******");
 						 System.exit(1);
 					 }
 					 else {
 						 newOpr = (Operator) Operator.operators.get(tok); 
-						 System.out.println("new operator priority: " + newOpr.priority());
+						 System.out.println("\nnew operator priority: " + newOpr.priority());
 					 }
-				 
-				
-				 
 				 
 				 while (((Operator) oprStack.peek()).priority() >= 
 						 newOpr.priority()) {
-					 Operator oldOpr = ((Operator)oprStack.pop());
+					 Operator oldOpr = ((Operator)oprStack.pop()); 
 					 Operand op2 = (Operand)opdStack.pop(); 
-					 Operand op1 = (Operand)opdStack.pop(); 
-					 opdStack.push((Operand) oldOpr.execute(op1,op2));
+					 Operand op1 = (Operand)opdStack.pop();
+					 opdStack.push(oldOpr.execute(op1,op2));
 				 }
-				 
+				 oprStack.push(newOpr);
 				 }
 			 }
 		 }

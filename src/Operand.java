@@ -7,7 +7,9 @@ public class Operand {
 		value = Integer.parseInt(tok);
 	}
 	
-	public Operand(int value) {}
+	public Operand(int value) {
+		this.value = value;
+	}
 
 	public static void setValue(int tok) {
 		value = tok;
