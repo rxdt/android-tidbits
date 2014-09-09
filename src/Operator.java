@@ -9,7 +9,8 @@ public abstract class Operator {
 	
 	public String delimiters = "+-*/!#";
 	
-	static HashMap operators = new HashMap<String, Operator>();
+	static HashMap<String, Operator> operators = 
+			new HashMap<String, Operator>();
 	
 	public boolean check(String tok) {
 		if(!delimiters.contains(tok)) {

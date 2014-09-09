@@ -4,7 +4,7 @@ public class Operand {
 	private static int value;
 	
 	public Operand(String tok) {
-		//this.value = Integer.parseInt(tok);
+		value = Integer.parseInt(tok);
 	}
 	
 	public Operand(int value) {}

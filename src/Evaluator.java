@@ -21,20 +21,20 @@ public class Evaluator {
 		 String delimiters = "+-*/#! ";
 		 StringTokenizer st = new StringTokenizer(expr, delimiters, true);
 		 String tok;
-		 while (st.countTokens() > 0) {
+		 while (st.hasMoreElements()) {
 				 
 			 if ( !(tok = st.nextToken()).equals(" ")) { // filter out spaces
 				 if (Operand.check(tok)) { // check if tok is an operand
 					 opdStack.push(new Operand(tok));
 				 } else {
-					 if (!(Operator.operators.containsValue(tok))) {
+					 if (!(Operator.operators.containsKey(tok))) {
 						 System.out.println("*****invalid token******");
 						 System.exit(1);
 				 }
 				 
 				 Operator newOpr = (Operator) Operator.operators.get(tok); 
 				 
-				 while ( ((Operator)oprStack.peek()).priority() >= 
+				 while (!oprStack.empty() && ((Operator)oprStack.peek()).priority() >= 
 						 newOpr.priority()) {
 					 Operator oldOpr = ((Operator)oprStack.pop());
 					 Operand op2 = (Operand)opdStack.pop();
