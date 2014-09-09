@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Evaluator {
 	
-	 private Stack<Operand> opdStack;
+	 static Stack<Operand> opdStack;
 	 
 	 private Stack<Operator> oprStack;
 	 
@@ -17,6 +17,7 @@ public class Evaluator {
 		 Operator.operators.put("-", new SubtractionOperator());
 		 Operator.operators.put("*", new MultiplicationOperator());
 		 Operator.operators.put("/", new DivisionOperator());
+		 Operator.operators.put("!", new ExclamationOperator());
 
 		 String delimiters = "+-*/#! ";
 		 StringTokenizer st = new StringTokenizer(expr, delimiters, true);

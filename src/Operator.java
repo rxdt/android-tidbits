@@ -1,8 +1,8 @@
 import java.util.HashMap;
 
-/** 
- * 		SUPER OPERATOR CLASS 
-**/
+/*****************************************
+  			SUPER OPERATOR CLASS 
+******************************************/
 public abstract class Operator {
 	
 	private int priority = 0; 
@@ -28,9 +28,9 @@ public abstract class Operator {
 }
 
 
-/** 
- * 		ADDITION 
-**/
+/**********************************
+ 			ADDITION 
+***********************************/
 class AdditionOperator extends Operator {
 	
 	public int priority = 2;
@@ -41,9 +41,9 @@ class AdditionOperator extends Operator {
 }
 
 
-/** 
- * 		SUBTRACTION 
-**/
+/***********************************
+  			SUBTRACTION 
+************************************/
 class SubtractionOperator extends Operator {
 	
 	public int priority = 2;
@@ -54,9 +54,9 @@ class SubtractionOperator extends Operator {
 }
 
 
-/** 
- * 		DIVISION 
-**/
+/********************************* 
+  			DIVISION 
+**********************************/
 class DivisionOperator extends Operator {
 	
 	public int priority = 3;
@@ -67,9 +67,9 @@ class DivisionOperator extends Operator {
 }
 
 
-/** 
- * 		MULTIPLICATION 
-**/
+/*********************************
+ 			MULTIPLICATION 
+**********************************/
 class MultiplicationOperator extends Operator {
 	
 	public int priority = 3;
@@ -78,3 +78,30 @@ class MultiplicationOperator extends Operator {
 		return (new Operand(op1.getValue() * op2.getValue()));
 	}
 }
+
+/*********************************
+  			EXCLAMATION 
+**********************************/
+class ExclamationOperator extends Operator {
+	
+	public int priority = 1;
+
+	@Override
+	public Object execute(Operand op1, Operand op2) {
+		return null;
+	}
+}
+
+
+/*********************************
+  			HASH 
+**********************************/
+class HashOperator extends Operator {
+	public int priority = 0;
+
+	@Override
+	public Object execute(Operand op1, Operand op2) {
+		return null;
+	}
+}
+
