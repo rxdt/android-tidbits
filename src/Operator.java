@@ -5,12 +5,10 @@ import java.util.HashMap;
 ******************************************/
 public abstract class Operator {
 	
-	private int priority = 0; 
-	
 	public String delimiters = "+-*/!#";
 	
-	static HashMap<String, Operator> operators = 
-			new HashMap<String, Operator>();
+	public static HashMap<String, Operator> operators = 
+			new HashMap<String, Operator>(); 
 	
 	public boolean check(String tok) {
 		if(!delimiters.contains(tok)) {
@@ -97,11 +95,14 @@ class ExclamationOperator extends Operator {
   			HASH 
 **********************************/
 class HashOperator extends Operator {
-	public int priority = 0;
 
+	private int priority = 0; 
+	
 	@Override
 	public Object execute(Operand op1, Operand op2) {
+		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
 
